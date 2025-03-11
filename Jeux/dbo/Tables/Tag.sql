@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Tag] (
+    [TagId]  UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
+    [NomTag] NVARCHAR (50)    NOT NULL,
+    PRIMARY KEY CLUSTERED ([TagId] ASC),
+    UNIQUE NONCLUSTERED ([NomTag] ASC)
+);
+
