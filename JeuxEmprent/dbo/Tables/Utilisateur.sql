@@ -4,7 +4,7 @@
     [MotDePasse]        NVARCHAR (255)   NOT NULL,
     [Salt]              UNIQUEIDENTIFIER NOT NULL,
     [Pseudo]            NVARCHAR (100)   NOT NULL,
-    [DateCreation]      DATE             DEFAULT (getdate()) NULL,
+    [DateCreation]      DATE             DEFAULT (getdate()) Not NULL,
     [DateDesactivation] DATE             NULL,
     PRIMARY KEY CLUSTERED ([UtilisateurId] ASC),
     UNIQUE NONCLUSTERED ([Email] ASC),

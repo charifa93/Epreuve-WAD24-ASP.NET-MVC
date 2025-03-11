@@ -85,4 +85,7 @@
     <Build Include="dbo\Stored Procedures\Insert_Emprunt.sql" />
     <Build Include="dbo\Stored Procedures\Cloturer_Emprunt.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="JeuxEmprent.publish.xml" />
+  </ItemGroup>
 </Project>
