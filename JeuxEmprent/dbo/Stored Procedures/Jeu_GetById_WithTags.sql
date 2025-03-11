@@ -4,6 +4,7 @@ AS
 BEGIN
     SELECT 
         j.Nom,
+        j.Description,
         j.NbJoueurMin,
         j.NbJoueurMax,
         j.AgeMin,
@@ -14,5 +15,5 @@ BEGIN
     LEFT JOIN Associer a ON j.JeuId = a.JeuId
     LEFT JOIN Tag t ON a.TagId = t.TagId
     WHERE j.JeuId = @JeuId
-    GROUP BY j.Nom, j.NbJoueurMin, j.NbJoueurMax, j.AgeMin, j.AgeMax, j.DureeMinute;
+    GROUP BY j.Nom, j.Description,j.NbJoueurMin, j.NbJoueurMax, j.AgeMin, j.AgeMax, j.DureeMinute;
 END;

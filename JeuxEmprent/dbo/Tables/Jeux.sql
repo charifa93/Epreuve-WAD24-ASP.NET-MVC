@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Jeux] (
     [JeuId]        UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
     [Nom]          NVARCHAR (255)   NOT NULL,
-    [Description]  TEXT             NULL,
+    [Description]  NVARCHAR(MAX)            NULL,
     [AgeMin]       INT              NOT NULL,
     [AgeMax]       INT              NOT NULL,
     [NbJoueurMin]  INT              NOT NULL,

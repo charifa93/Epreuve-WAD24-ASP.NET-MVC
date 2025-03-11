@@ -3,7 +3,7 @@ AS
 BEGIN
     SELECT TOP 10
 	          j.Nom,
-			  
+			  j.Description,
 			  j.AgeMin,
 			  j.AgeMax,
 			  j.DateCreation,
@@ -14,7 +14,7 @@ BEGIN
     FROM Emprunt e
     JOIN Jeux j ON e.JeuId = j.JeuId
     GROUP BY j.Nom,
-			 
+			 j.Description,
 			  j.AgeMin,
 			  j.AgeMax,
 			  j.DateCreation,
