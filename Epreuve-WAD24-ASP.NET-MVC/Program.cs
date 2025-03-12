@@ -1,3 +1,5 @@
+using Common.Repositories;
+
 namespace Epreuve_WAD24_ASP.NET_MVC
 {
     public class Program
@@ -8,6 +10,10 @@ namespace Epreuve_WAD24_ASP.NET_MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //Ajout de Services 
+            builder.Services.AddScoped<IUserRepository<BLL.Entities.Utilisateur>,BLL.Services.UserService>();
+            builder.Services.AddScoped<IUserRepository<DAL.Entities.Utilisateur>, DAL.Services.UserService>();
 
             var app = builder.Build();
 
@@ -27,8 +33,8 @@ namespace Epreuve_WAD24_ASP.NET_MVC
             app.UseAuthorization();
 
             app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+               name: "default",
+               pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }

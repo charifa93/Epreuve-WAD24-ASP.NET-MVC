@@ -52,5 +52,24 @@ namespace DAL.Mappers
                 NomEtat = (string)record[nameof(Etat.NomEtat)]
             };
         }
+        public static Tag ToTag(this IDataRecord record)
+        {
+            if (record is null) throw new ArgumentNullException(nameof(record));
+            return new Tag()
+            { 
+                TagId = (Guid)record[nameof(Associer.TagId)],
+                NomTag = (string)record[nameof(Tag.NomTag)]
+            };
+        }
+
+        public static Associer ToAssocier(this IDataRecord record)
+        {
+            if (record is null) throw new ArgumentNullException(nameof(record));
+            return new Associer()
+            {
+                JeuId = (Guid)record[nameof(Associer.JeuId)],
+                TagId = (Guid)record[nameof(Associer.TagId)]
+            };
+            }
     }
 }

@@ -39,19 +39,24 @@ namespace BLL.Entities
         {
             Email = email;
             Pseudo = pseudo;
-            _jeux = new List<Jeux>();
+            //_jeux = new List<Jeux>();
+        }
+        public Utilisateur (string pseudo)
+        {
+            Pseudo = pseudo;
+
         }
 
-        public void AjouterJeu(string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute)
-        {
-            Jeux jeu = new Jeux(Guid.NewGuid(), nom, description, ageMin, ageMax, nbJoueurMin, nbJoueurMax, dureeMinute, DateTime.Now);
-            _jeux.Add(jeu);
-        }
-        public void SetJeux(IEnumerable<Jeux> jeux)
-        {
-            if (jeux is null || jeux.Contains(null)) throw new ArgumentNullException(nameof(jeux));
-            _jeux = new List<Jeux>(jeux);
-        }
+        //public void AjouterJeu(string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute)
+        //{
+        //    Jeux jeu = new Jeux(Guid.NewGuid(), nom, description, ageMin, ageMax, nbJoueurMin, nbJoueurMax, dureeMinute, DateTime.Now);
+        //    _jeux.Add(jeu);
+        //}
+        //public void SetJeux(IEnumerable<Jeux> jeux)
+        //{
+        //    if (jeux is null || jeux.Contains(null)) throw new ArgumentNullException(nameof(jeux));
+        //    _jeux = new List<Jeux>(jeux);
+        //}
 
 
     }

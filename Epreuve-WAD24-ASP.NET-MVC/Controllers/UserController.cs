@@ -1,0 +1,102 @@
+﻿using BLL.Entities;
+using Common.Repositories;
+using Epreuve_WAD24_ASP.NET_MVC.Mappers;
+using Epreuve_WAD24_ASP.NET_MVC.Models.User;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Epreuve_WAD24_ASP.NET_MVC.Controllers
+{
+    public class UserController : Controller
+    {
+        private IUserRepository<BLL.Entities.Utilisateur> _userService;
+
+        public UserController(IUserRepository<Utilisateur> userService)
+        {
+            _userService = userService;
+        }
+
+        // GET: UserController
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: UserController/Details/5
+        public ActionResult Details(Guid id)
+        {
+            try
+            {
+                UserDetails model = _userService.Get(id).ToDetails();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        // GET: UserController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: UserController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: UserController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: UserController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: UserController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: UserController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}

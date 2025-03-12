@@ -43,7 +43,7 @@ namespace DAL.Services
                 using (SqlCommand cmd = new SqlCommand("Etat_GetByJeuxId", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@JeuId", SqlDbType.UniqueIdentifier) { Value = jeuId });
+                    cmd.Parameters.AddWithValue(nameof(jeuxId),jeuxId);
                     conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

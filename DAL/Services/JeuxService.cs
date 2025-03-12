@@ -18,7 +18,7 @@ namespace DAL.Services
 
         public JeuxService(IConfiguration config) : base(config, "Main-DB") { }
 
-
+        //Afficher tt les jeux
         public IEnumerable<Jeux> Get()
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -38,7 +38,7 @@ namespace DAL.Services
                 }
             }
         }
-
+        //affiche les details Jeux
         public IEnumerable<Jeux> GetFromUser(Guid userId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -179,7 +179,7 @@ namespace DAL.Services
             }
 
         }
-
+        //Affiche les Jeux d'un utilisateur avec les tags
         public Jeux Get(Guid jeuId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -204,8 +204,10 @@ namespace DAL.Services
                 }
             }
         }
-        
 
-        
+        public void Update(Guid id, Jeux entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

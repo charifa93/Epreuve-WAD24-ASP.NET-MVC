@@ -1,6 +1,7 @@
 ﻿using BLL.Mappers;
+using BLL.Entities;
 using Common.Repositories;
-using DAL.Entities;
+using D = DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,27 +15,27 @@ namespace BLL.Services
         private IUserRepository<DAL.Entities.Utilisateur> _userService;
         private IJeuxRepository<DAL.Entities.Jeux> _jeuxService;
 
-        public UserService(IUserRepository<Utilisateur> userService, IJeuxRepository<Jeux> jeuxService)
+        public UserService(IUserRepository<D.Utilisateur> userService, IJeuxRepository<D.Jeux> jeuxService)
         {
             _userService = userService;
             _jeuxService = jeuxService;
         }
 
-        public void Delete(Guid id)
+        public void Delete(Guid userId)
         {
-            throw new NotImplementedException();
+            _userService.Delete(userId);
         }
 
         public Utilisateur Get(Guid userId)
         {
             Utilisateur user = _userService.Get(userId).ToBLL();
-            user.SetJeux(_userService.GetFromUser(userId));
-            return user;
+            return user ;
         }
 
-        public Guid Insert(Utilisateur entity)
+        public Guid Insert(Utilisateur user)
         {
-            throw new NotImplementedException();
+            return _userService.Insert(user.ToDAL());
+
         }
     }
 }

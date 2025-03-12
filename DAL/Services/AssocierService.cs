@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Common.Repositories;
+using DAL.Entities;
+using DAL.Mappers;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+
+namespace DAL.Services
+{
+   public  class AssocierService : BaseService , IAssocierRepository<DAL.Entities.Associer>
+    {
+        public AssocierService(IConfiguration config) : base(config, "Main-DB") { }
+
+        public IEnumerable<Associer> GetTagsByJeu(Guid JeuId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Associer_GetTagsByJeuId";
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToAssocier();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
