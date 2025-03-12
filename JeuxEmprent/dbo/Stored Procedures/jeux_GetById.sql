@@ -1,0 +1,8 @@
+﻿CREATE PROCEDURE Jeux_GetById
+    @JeuId UNIQUEIDENTIFIER
+AS
+BEGIN
+    SELECT * FROM Jeux j
+    WHERE j.JeuId = @JeuId;
+END;
+

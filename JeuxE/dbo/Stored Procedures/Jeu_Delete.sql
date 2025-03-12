@@ -1,6 +1,0 @@
-﻿CREATE PROCEDURE Jeu_Delete
-    @JeuId UNIQUEIDENTIFIER
-AS
-BEGIN
-    DELETE FROM Jeux WHERE JeuId = @JeuId;
-END;

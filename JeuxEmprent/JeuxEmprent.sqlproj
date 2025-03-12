@@ -71,19 +71,24 @@
     <Build Include="dbo\Tables\Associer.sql" />
     <Build Include="dbo\Tables\Emprunt.sql" />
     <Build Include="dbo\Functions\SaltAndHash.sql" />
-    <Build Include="dbo\Stored Procedures\Jeu_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\Jeu_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Jeux_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Jeux_Update.sql" />
     <Build Include="dbo\Stored Procedures\Jeu_Delete.sql" />
     <Build Include="dbo\Stored Procedures\User_delete.sql" />
     <Build Include="dbo\Stored Procedures\User_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\User_GetById.sql" />
     <Build Include="dbo\Stored Procedures\User_UpdatePseudo.sql" />
-    <Build Include="dbo\Stored Procedures\SearchJeux.sql" />
     <Build Include="dbo\Stored Procedures\Top10JeuxEmpruntes.sql" />
-    <Build Include="dbo\Stored Procedures\Jeu_GetById_WithTags.sql" />
+    <Build Include="dbo\Stored Procedures\Jeu_GetByUserId_WithTags.sql" />
     <Build Include="dbo\Stored Procedures\Insert_jeux_InCollection_User.sql" />
     <Build Include="dbo\Stored Procedures\Insert_Emprunt.sql" />
     <Build Include="dbo\Stored Procedures\Cloturer_Emprunt.sql" />
+    <Build Include="dbo\Stored Procedures\User_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Jeux_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Jeux_GetByNom.sql" />
+    <Build Include="dbo\Stored Procedures\Jeux_GetByTag.sql" />
+    <Build Include="dbo\Stored Procedures\jeux_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Etat_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Etat_GetByJeuxId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JeuxEmprent.publish.xml" />
