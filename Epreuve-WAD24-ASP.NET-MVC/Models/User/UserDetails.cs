@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Epreuve_WAD24_ASP.NET_MVC.Models.Jeux;
 
 namespace Epreuve_WAD24_ASP.NET_MVC.Models.User
 {
@@ -23,7 +24,7 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Models.User
         public DateOnly DateCreation { get; set; }
 
 
-        //[DisplayName("Vos cocktails : ")]
-        //public IEnumerable<CocktailListItem> Cocktails { get; set; }
+        [DisplayName("Vos Jeux : ")]
+        public IEnumerable<JeuxListItems>? Jeux { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,12 @@ namespace BLL.Entities
         
 
 
-        private List<Tag> _tags;
-        public Tag[] Tags
+        private List<Associer> _associer;
+        public Associer[] Associers
         {
-            get { return _tags.ToArray(); }
+            get { return _associer.ToArray(); }
         }
+
 
 
 
@@ -46,7 +48,7 @@ namespace BLL.Entities
             NbJoueurMax = nbJoueurMax;
             DureeMinute = dureeMinute;
             DateCreation = dateCreation;
-            _tags = new List<Tag>();
+            _associer = new List<Associer>();
         }
 
         public Jeux(Guid jeuId, string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute, DateTime dateCreation, Guid? createdby )
@@ -60,6 +62,19 @@ namespace BLL.Entities
             Creator = creator;
             if (Creator is not null) _createdBy = Creator.UtilisateurId;
         }
+
+
+        //Les Methodes :
+
+        public void SetCreator(Utilisateur creator)
+        {
+            if (creator is null) throw new ArgumentNullException(nameof(creator));
+            if (CreatedBy is null) throw new InvalidOperationException("Pas d'utilisateur à enregitrer.");
+            if (CreatedBy != creator.UtilisateurId) throw new InvalidOperationException("Mauvais utilisateur");
+            Creator = creator;
+        }
+
+
 
     }
 }

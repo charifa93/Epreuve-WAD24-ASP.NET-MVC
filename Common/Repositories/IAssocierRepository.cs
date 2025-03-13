@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Repositories
 {
-    public interface IAssocierRepository <TAssocier>
+    public interface IAssocierRepository <TAssocier> : IGetALLRepository<TAssocier,Guid>
     {
         IEnumerable<TAssocier> GetTagsByJeu(Guid JeuId);
     }

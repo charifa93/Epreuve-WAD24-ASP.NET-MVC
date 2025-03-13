@@ -83,7 +83,7 @@ namespace DAL.Services
                 {
                     command.CommandText = "User_Delete";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(nameof(userId), userId);
+                    command.Parameters.AddWithValue(nameof(Utilisateur.UtilisateurId), userId);
                     connection.Open();
                     command.ExecuteNonQuery();
                 }

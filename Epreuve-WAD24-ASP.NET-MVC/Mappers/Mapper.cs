@@ -16,7 +16,7 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Mappers
                 Pseudo = user.Pseudo,
                 Email = user.Email,
                 DateCreation = DateOnly.FromDateTime(user.DateCreation),
-                //Jeux = user.Jeux.Select(bll => bll.ToListItem())
+                Jeux = user.Jeux.Select(bll => bll.ToListItem())
             };
         }
             public static Utilisateur ToBLL(this UserCreateForm user)
@@ -56,9 +56,12 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Mappers
             if (user is null) throw new ArgumentNullException(nameof(user));
             return new UserDelete()
             {
-             
-                
+            
+                Pseudo = user.Pseudo,
+                Email = user.Email
             };
+
+        
         }
 
 

@@ -13,13 +13,13 @@ namespace BLL.Services
     {
         private IJeuxRepository<DAL.Entities.Jeux> _jeuxService;
         private IUserRepository<DAL.Entities.Utilisateur> _userService;
-        //private IEtatRepository<DAL.Entities.Etat> _etatService;
+        private ITagRepository<DAL.Entities.Tag> _tagService;
 
-        public JeuxService(IJeuxRepository<DAL.Entities.Jeux> jeuxService, IUserRepository<DAL.Entities.Utilisateur> userService)
+        public JeuxService(IJeuxRepository<DAL.Entities.Jeux> jeuxService, IUserRepository<DAL.Entities.Utilisateur> userService, ITagRepository<DAL.Entities.Tag> tagService)
         {
             _jeuxService = jeuxService;
             _userService = userService;
-            //_etatService = etatService;
+            _tagService = tagService;
         }
 
         public void Delete(Guid jeuId)
@@ -29,12 +29,26 @@ namespace BLL.Services
 
         public IEnumerable<Jeux> Get()
         {
-            throw new NotImplementedException();
+            IEnumerable<Jeux> Jeux = _jeuxService.Get().Select(dal => dal.ToBLL());
+            foreach (Jeux jeu in Jeux)
+            {
+                if (jeu.CreatedBy is not null)
+                {
+                    jeu.SetCreator(_userService.Get((Guid)jeu.CreatedBy).ToBLL());
+                }
+            }
+            return Jeux;
         }
 
-        public Jeux Get(Guid id)
+        public Jeux Get(Guid jeuId)
         {
-            throw new NotImplementedException();
+            Jeux jeu = _jeuxService.Get(jeuId).ToBLL();
+            if (jeu.CreatedBy is not null)
+            {
+                jeu.SetCreator(_userService.Get((Guid)jeu.CreatedBy).ToBLL());
+            }
+            
+            return jeu;
         }
 
         public IEnumerable<Jeux> GetFromUser(Guid userId)
@@ -42,14 +56,24 @@ namespace BLL.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Jeux> GetWithNom(string Nom)
+        public IEnumerable<Jeux> GetWithNom(string nom)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(nom))
+            {
+                throw new ArgumentException("Le nom du jeu ne peut pas être vide.", nameof(nom));
+            }
+
+            return (IEnumerable<Jeux>)_jeuxService.GetWithNom(nom);
         }
 
         public IEnumerable<Jeux> GetWithTag(Guid tagId)
         {
-            throw new NotImplementedException();
+            if (tagId == Guid.Empty)
+            {
+                throw new ArgumentException("L'ID du tag ne peut pas être vide.", nameof(tagId));
+            }
+
+            return (IEnumerable<Jeux>)_jeuxService.GetWithTag(tagId);
         }
 
         public Guid Insert(Jeux entity)
