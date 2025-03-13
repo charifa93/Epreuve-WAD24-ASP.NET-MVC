@@ -5,3 +5,4 @@ VALUES
   (NEWID(), 'charles.dupont@example.com', 'hashed_password_3', NEWID(), 'CharlieD', DATEADD(DAY, -20, GETDATE()), NULL),
   (NEWID(), 'diane.leclerc@example.com', 'hashed_password_4', NEWID(), 'DianeL', DATEADD(DAY, -30, GETDATE()), NULL),
   (NEWID(), 'eric.lambert@example.com', 'hashed_password_5', NEWID(), 'EricL', DATEADD(DAY, -40, GETDATE()), DATEADD(DAY, -5, GETDATE()));
+

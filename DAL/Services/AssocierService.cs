@@ -22,7 +22,7 @@ namespace DAL.Services
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "Associer_GetTagsByJeuId";
+                    command.CommandText = "Associer_GetAll";
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())

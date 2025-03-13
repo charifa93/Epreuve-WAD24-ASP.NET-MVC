@@ -8,7 +8,8 @@ namespace Common.Repositories
 {
     public interface IUserRepository<TUtilisateur> :IInsertRepository<TUtilisateur, Guid> ,
                                                      IGetRepository<TUtilisateur, Guid> , 
-                                                    IDeleteRepository<TUtilisateur, Guid>
+                                                    IDeleteRepository<TUtilisateur, Guid>,
+                                                    IUpdateRepository<TUtilisateur, Guid>
     { 
      
     }

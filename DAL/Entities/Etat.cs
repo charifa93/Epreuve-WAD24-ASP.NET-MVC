@@ -12,5 +12,6 @@ namespace DAL.Entities
         public Guid UtilisateurId {  get; set; }
         public Guid JeuId { get; set; }
         public string NomEtat { get; set; }
+       
     }
 }

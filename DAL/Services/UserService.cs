@@ -25,7 +25,8 @@ namespace DAL.Services
                 {
                     command.CommandText = "User_GetById";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(nameof(userId), userId);
+                    //command.Parameters.AddWithValue("UtilisateurId", userId);
+                    command.Parameters.AddWithValue(nameof(Utilisateur.UtilisateurId), userId);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -67,7 +68,7 @@ namespace DAL.Services
                 {
                     command.CommandText = "User_UpdatePseudo";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(nameof(userId), userId);
+                    command.Parameters.AddWithValue(nameof(user.UtilisateurId), userId);
                     command.Parameters.AddWithValue(nameof(Utilisateur.Pseudo), user.Pseudo);
                     connection.Open();
                     command.ExecuteNonQuery();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,21 @@ namespace BLL.Entities
         public int NbJoueurMax { get; set; }
         public int? DureeMinute { get; set; }
         public DateTime DateCreation { get; set; }
+
+        private Guid? _createdBy;
+        public Guid? CreatedBy { get { return Creator?.UtilisateurId ?? _createdBy; } }
         public Utilisateur? Creator { get; private set; }
+
+        
+
+
+        private List<Tag> _tags;
+        public Tag[] Tags
+        {
+            get { return _tags.ToArray(); }
+        }
+
+
 
         public Jeux(Guid jeuId, string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute, DateTime dateCreation)
         {
@@ -31,11 +46,20 @@ namespace BLL.Entities
             NbJoueurMax = nbJoueurMax;
             DureeMinute = dureeMinute;
             DateCreation = dateCreation;
+            _tags = new List<Tag>();
         }
 
-        public Jeux(Guid jeuId, string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute, DateTime dateCreation, Utilisateur? creator)
+        public Jeux(Guid jeuId, string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute, DateTime dateCreation, Guid? createdby )
         {
-            Creator = creator;
+           
+            _createdBy = createdby;
         }
+        public Jeux(Guid jeuId, string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute, DateTime dateCreation, Utilisateur? creator )
+        {
+            
+            Creator = creator;
+            if (Creator is not null) _createdBy = Creator.UtilisateurId;
+        }
+
     }
 }

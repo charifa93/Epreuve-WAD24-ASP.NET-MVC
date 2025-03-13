@@ -15,6 +15,25 @@ namespace Epreuve_WAD24_ASP.NET_MVC
             builder.Services.AddScoped<IUserRepository<BLL.Entities.Utilisateur>,BLL.Services.UserService>();
             builder.Services.AddScoped<IUserRepository<DAL.Entities.Utilisateur>, DAL.Services.UserService>();
 
+            builder.Services.AddScoped<IJeuxRepository<BLL.Entities.Jeux>, BLL.Services.JeuxService>();
+            builder.Services.AddScoped<IJeuxRepository<DAL.Entities.Jeux>, DAL.Services.JeuxService>();
+
+            //builder.Services.AddScoped<ITagRepository<BLL.Entities.Tag>, BLL.Services.TagService>();
+            //builder.Services.AddScoped<ITagRepository<DAL.Entities.Tag> ,DAL.Services.TagService>();
+
+            //builder.Services.AddScoped<IEtatRepository<BLL.Entities.Etat>, BLL.Services.EtatService>();
+            //builder.Services.AddScoped<IEtatRepository<DAL.Entities.Etat>, DAL.Services.EtatService>();
+
+            //builder.Services.AddScoped<IAssocierRepository<BLL.Entities.Associer>, BLL.Services.AssocierService>();
+            //builder.Services.AddScoped<IAssocierRepository<DAL.Entities.Associer>, DAL.Services..AssocierService>();
+
+            //builder.Services.AddScoped<IEmpruntRepository<BLL.Entities.Emprunt>, BLL.Services.EmpruntService>();
+            //builder.Services.AddScoped<IEmpruntRepository<DAL.Entities.Emprunt>, DAL.Services.EmpruntService>();
+
+
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

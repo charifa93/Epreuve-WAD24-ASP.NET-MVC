@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Entities
-{
+{ 
     public class Utilisateur
     {
         public Guid UtilisateurId { get; set; }
@@ -46,6 +46,7 @@ namespace BLL.Entities
             Pseudo = pseudo;
 
         }
+        
 
         //public void AjouterJeu(string nom, string description, int ageMin, int ageMax, int nbJoueurMin, int nbJoueurMax, int? dureeMinute)
         //{

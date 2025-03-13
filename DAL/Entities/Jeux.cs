@@ -17,6 +17,8 @@ namespace DAL.Entities
         public int NbJoueourMax { get; set;}
         public int? DureeMinute { get; set; }
         public DateTime DateCreation { get; set; }
+        public Guid? CreatedBy { get; set; }
+        
 
     }
 }

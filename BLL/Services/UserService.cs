@@ -37,5 +37,12 @@ namespace BLL.Services
             return _userService.Insert(user.ToDAL());
 
         }
+
+        public void Update(Guid userId, Utilisateur utilisateur)
+        {
+            _userService.Update(userId, utilisateur.ToDAL());
+        }
+
+
     }
 }

@@ -67,6 +67,7 @@ namespace BLL.Mappers
                 DateCreation = jeux.DateCreation
             };
         }
+
         public static B.Etat ToBLL(this D.Etat etat)
         {
             if (etat is null) throw new ArgumentNullException(nameof(etat));
@@ -82,12 +83,87 @@ namespace BLL.Mappers
             if (etat is null) throw new ArgumentNullException(nameof(etat));
             return new D.Etat()
             {
-                EtatId = etat.EtatId,
-                UtilisateurId = etat.UtilisateurId,
-                JeuId = etat.JeuId,
-                NomEtat = etat.NomEtat
+               EtatId = etat.EtatId,
+               UtilisateurId = etat.UtlisateurId,
+               JeuId = etat.JeuId,
+               NomEtat = etat.NomEtat
             };
         }
+
+        public static B.Tag ToBLL(this D.Tag tag)
+        {
+            if(tag is null ) throw new ArgumentNullException(nameof(tag));
+            return new B.Tag
+                (
+                tag.TagId,
+                tag.NomTag
+                );
+        }
+        public static D.Tag ToDAL(this B.Tag tag)
+        {
+            if (tag is null) throw new ArgumentNullException(nameof(tag));
+            return new D.Tag()
+            {
+                TagId = tag.TagId,
+                NomTag = tag.NomTag,
+            };
+        }
+
+        public static B.Emprunt ToBLL(this D.Emprunt emprunt)
+        {
+            if (emprunt is null) throw new ArgumentNullException(nameof(emprunt));
+            return new B.Emprunt
+                (
+                emprunt.EmpruntId,
+                emprunt.DateEmprunt,
+                emprunt.DateRetour,
+                emprunt.EvaluationPreteur,
+                emprunt.EvaluationEmprunteur,
+                emprunt.PreteurId,
+                emprunt.EmprunteurId,
+                emprunt.JeuId
+                );
+        }
+        public static D.Emprunt ToDAL(this B.Emprunt emprunt)
+        {
+            if (emprunt is null) throw new ArgumentNullException(nameof(emprunt));
+            return new D.Emprunt()
+            {
+               
+                EmpruntId = emprunt.EmpruntId,
+                PreteurId = emprunt.PreteurId,
+                EmprunteurId = emprunt.EmprenteurId,
+                JeuId = emprunt.JeuId,
+                DateEmprunt = emprunt.DateEmprunt,
+                DateRetour = emprunt.DateRetour,
+                EvaluationPreteur = emprunt.EvaluationPreteur,
+                EvaluationEmprunteur = emprunt.EvaluationEmprunteur
+
+            };
+        }
+
+        public static B.Associer ToBLL (this D.Associer associer)
+        {
+            if(associer is null) throw new ArgumentNullException(nameof(associer));
+            return new B.Associer
+                (
+                associer.JeuId,
+                associer.TagId
+                );
+        }
+        public static D.Associer ToDAL(this B.Associer associer)
+        {
+            if (associer is null) throw new ArgumentNullException( nameof(associer));
+            return new D.Associer()
+            {
+                JeuId = associer.JeuId,
+                TagId = associer.TagId
+
+            };
+        }
+        
+
+
 
     }
 

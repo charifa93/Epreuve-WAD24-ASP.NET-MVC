@@ -89,11 +89,13 @@
     <Build Include="dbo\Stored Procedures\jeux_GetById.sql" />
     <Build Include="dbo\Stored Procedures\Etat_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Etat_GetByJeuxId.sql" />
-    <Build Include="dbo\Stored Procedures\Associer_GetTagsByJeuId.sql" />
     <Build Include="dbo\Stored Procedures\Tag_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Associer_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JeuxEmprent.publish.xml" />
-    <None Include="dbo\Script1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>

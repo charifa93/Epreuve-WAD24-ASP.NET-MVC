@@ -143,6 +143,9 @@ namespace DAL.Services
                     command.Parameters.AddWithValue(nameof(Jeux.NbJoueourMin), jeux.NbJoueourMin);
                     command.Parameters.AddWithValue(nameof(Jeux.NbJoueourMax), jeux.NbJoueourMax);
                     command.Parameters.AddWithValue(nameof(Jeux.DureeMinute), jeux.DureeMinute);
+                    command.Parameters.AddWithValue("UtilisateurId", (object?)jeux.CreatedBy ?? DBNull.Value);
+                    
+
                     connection.Open();
                     return (Guid)command.ExecuteScalar();
                 }
@@ -205,9 +208,21 @@ namespace DAL.Services
             }
         }
 
-        public void Update(Guid id, Jeux entity)
+        public void Update(Guid jeuId, Jeux jeux)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    //command.CommandText = "Jeux_Update";
+                    //command.CommandType = CommandType.StoredProcedure;
+                    //command.Parameters.AddWithValue(nameof(jeuId), jeuId);
+                    //command.Parameters.AddWithValue(nameof(Jeux.Etat), jeux.Etat);
+                    
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

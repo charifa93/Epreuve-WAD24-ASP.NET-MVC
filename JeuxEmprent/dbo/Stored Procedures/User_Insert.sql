@@ -8,5 +8,6 @@ BEGIN
     SET @salt = NEWID()
 
     INSERT INTO Utilisateur (UtilisateurId, Email, MotDePasse, Salt, Pseudo, DateCreation)
+    OUTPUT inserted.UtilisateurId
     VALUES (NEWID(), @Email, [dbo].[SaltAndHash](@MotDePasse, @salt), @salt, @Pseudo, GETDATE());
 END;

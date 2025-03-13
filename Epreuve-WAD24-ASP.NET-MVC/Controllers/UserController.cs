@@ -30,7 +30,7 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Controllers
                 UserDetails model = _userService.Get(id).ToDetails();
                 return View(model);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", "Home");
             }
@@ -45,11 +45,14 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Controllers
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(UserCreateForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                
+                if (!ModelState.IsValid) throw new ArgumentException();
+                Guid UtilisateurId = _userService.Insert(form.ToBLL());
+                return RedirectToAction(nameof(Details), new { id = UtilisateurId });
             }
             catch
             {
@@ -58,44 +61,63 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Controllers
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            try
+            {
+                UserEditForm model = _userService.Get(id).ToEditForm();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, UserEditForm form)
         {
             try
             {
+                if (!ModelState.IsValid) throw new ArgumentException(nameof(form));
+                _userService.Update(id, form.ToBLL());
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return RedirectToAction(nameof(Edit), new { id = id });
             }
         }
 
         // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            try
+            {
+                UserDelete model = _userService.Get(id).ToDelete();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         // POST: UserController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, UserDelete form)
         {
             try
             {
+                _userService.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return RedirectToAction(nameof(Delete), new { id = id });
             }
         }
     }

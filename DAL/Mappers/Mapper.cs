@@ -38,7 +38,10 @@ namespace DAL.Mappers
                 NbJoueourMin = (int)record[nameof(Jeux.NbJoueourMin)],
                 NbJoueourMax = (int)record[nameof(Jeux.NbJoueourMax)],
                 DureeMinute = (record[nameof(Jeux.DureeMinute)] is DBNull) ? null : (int?)record[nameof(Jeux.DureeMinute)],
-                DateCreation = (DateTime)record[nameof(Jeux.DateCreation)]
+                DateCreation = (DateTime)record[nameof(Jeux.DateCreation)],
+                CreatedBy = (record[nameof(Jeux.CreatedBy)] is DBNull) ? null : (Guid?)record[nameof(Jeux.CreatedBy)]
+                
+
             };
         }
         public static Etat ToEtat(this IDataRecord record)
@@ -70,6 +73,24 @@ namespace DAL.Mappers
                 JeuId = (Guid)record[nameof(Associer.JeuId)],
                 TagId = (Guid)record[nameof(Associer.TagId)]
             };
+
             }
+        public static Emprunt ToEmprunt(this IDataRecord record)
+        {
+            if (record is null) throw new ArgumentNullException(nameof(record));
+            return new Emprunt()
+            {
+                EmpruntId = (Guid)record[nameof(Emprunt.JeuId)],
+                PreteurId = (Guid)record[nameof(Emprunt.JeuId)],
+                EmprunteurId = (Guid)record[nameof(Emprunt.JeuId)],
+                JeuId = (Guid)record[nameof(Emprunt.JeuId)],
+                DateEmprunt = (DateTime)record[nameof(Emprunt.DateEmprunt)],
+                DateRetour = (DateTime)record[nameof(Emprunt.DateRetour)],
+                EvaluationPreteur = (int)record[nameof(Emprunt.EvaluationPreteur)],
+                EvaluationEmprunteur = (int)record[nameof(Emprunt.EvaluationEmprunteur)]
+            };
+
+        }
+
     }
 }

@@ -8,8 +8,13 @@
     [NbJoueurMax]  INT              NOT NULL,
     [DureeMinute]  INT              NULL,
     [DateCreation] DATE             DEFAULT (getdate()) Not NULL,
+    [CreatedBy] UNIQUEIDENTIFIER,
     PRIMARY KEY CLUSTERED ([JeuId] ASC),
     CONSTRAINT [CK_Age] CHECK ([AgeMin]<[AgeMax]),
-    CONSTRAINT [CK_NbJoueur] CHECK ([NbJoueurMin]<=[NbJoueurMax])
+    CONSTRAINT [CK_NbJoueur] CHECK ([NbJoueurMin]<=[NbJoueurMax]),
+    CONSTRAINT [FK_Jeux_User] FOREIGN KEY ([CreatedBy])
+	REFERENCES [Utilisateur] ([UtilisateurId]),
+    
+
 );
 

@@ -1,10 +1,10 @@
 ﻿@model Epreuve_WAD24_ASP.NET_MVC.Models.User.UserDetails
 
 @{
-    ViewData["Title"] = "UserDetails";
+    ViewData["Title"] = "Details";
 }
 
-<h1>UserDetails</h1>
+<h1>Details</h1>
 
 <div>
     <h4>UserDetails</h4>
@@ -25,6 +25,7 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.UtilisateurId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.UtilisateurId }) |
+    
 </div>
