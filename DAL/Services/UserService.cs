@@ -91,5 +91,20 @@ namespace DAL.Services
 
         }
 
+        public Guid CheckPassword(string email, string password)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "User_CheckPassword";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue(nameof(email), email);
+                    command.Parameters.AddWithValue(nameof(password), password);
+                    connection.Open();
+                    return (Guid)command.ExecuteScalar();
+                }
+            }
+        }
     }
 }

@@ -42,6 +42,10 @@ namespace BLL.Services
         {
             _userService.Update(userId, utilisateur.ToDAL());
         }
+        public Guid CheckPassword(string email, string password)
+        {
+            return _userService.CheckPassword(email, password);
+        }
 
 
     }

@@ -11,7 +11,7 @@ namespace Common.Repositories
                                                       
                                                            
     {
-        void CloturerEmprunt(int empruntId);
+        void CloturerEmprunt(Guid empruntId);
         IEnumerable<TEmprunt> GetTop10Emprunts();
         void AjouterEvaluationAsync(Guid empruntId, int? evaluationPreteur, int? evaluationEmprunteur);
 

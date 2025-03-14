@@ -13,13 +13,13 @@ namespace BLL.Services
     {
         private IJeuxRepository<DAL.Entities.Jeux> _jeuxService;
         private IUserRepository<DAL.Entities.Utilisateur> _userService;
-        private ITagRepository<DAL.Entities.Tag> _tagService;
+       
 
         public JeuxService(IJeuxRepository<DAL.Entities.Jeux> jeuxService, IUserRepository<DAL.Entities.Utilisateur> userService, ITagRepository<DAL.Entities.Tag> tagService)
         {
             _jeuxService = jeuxService;
             _userService = userService;
-            _tagService = tagService;
+            
         }
 
         public void Delete(Guid jeuId)
@@ -76,14 +76,14 @@ namespace BLL.Services
             return (IEnumerable<Jeux>)_jeuxService.GetWithTag(tagId);
         }
 
-        public Guid Insert(Jeux entity)
+        public Guid Insert(Jeux jeux)
         {
-            throw new NotImplementedException();
+            return _jeuxService.Insert(jeux.ToDAL());
         }
 
-        public void Update(Guid id, Jeux entity)
+        public void Update(Guid jeuId, Jeux jeux)
         {
-            throw new NotImplementedException();
+            _jeuxService.Update(jeuId,jeux.ToDAL());
         }
         //private IEtatRepository<DAL.Entities.Etat> _etatService;
 

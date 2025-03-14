@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Epreuve_WAD24_ASP.NET_MVC.Models;
+using Epreuve_WAD24_ASP.NET_MVC.Models.Jeux;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Epreuve_WAD24_ASP.NET_MVC.Controllers

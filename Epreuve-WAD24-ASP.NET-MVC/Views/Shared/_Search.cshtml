@@ -1,0 +1,32 @@
+﻿@using Epreuve_WAD24_ASP.NET_MVC.Models.Jeux
+
+@{
+    ViewData["Title"] = "Rechercher des Jeux";
+}
+
+<h2>Rechercher des Jeux</h2>
+
+<form method="post">
+    <label for="nom">Nom du jeu :</label>
+    <input type="text" id="nom" name="nom" />
+
+    <label for="tagId">Tag ID :</label>
+    <input type="text" id="tagId" name="tagId" />
+
+    <button type="submit">Rechercher</button>
+</form>
+
+@* @if (Model != null && Model.Any()) *@
+@* { *@
+@*     <h3>Résultats :</h3> *@
+@*     <ul> *@
+@*         @foreach (var jeu in Model) *@
+@*         { *@
+@*             <li>@jeu.Nom - @jeu.Description</li> *@
+@*         } *@
+@*     </ul> *@
+@* } *@
+@* else *@
+@* { *@
+@*     <p>Aucun jeu trouvé.</p> *@
+@* } *@

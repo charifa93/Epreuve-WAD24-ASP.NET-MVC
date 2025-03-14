@@ -27,6 +27,22 @@ namespace BLL.Entities
         {
             Tag = tag;
             Jeux = jeux;
+            _jeuId = Jeux.JeuId;
+            _tagId = Tag.TagId;
+        }
+
+        public void SetJeux(Jeux jeux)
+        {
+            if (jeux is null) throw new ArgumentNullException(nameof(jeux));
+            if (JeuId != Jeux.JeuId) throw new InvalidOperationException("Mauvais Jeu");
+            Jeux = jeux;
+        }
+
+        public void SetTag(Tag Tags)
+        {
+            if (Tags is null) throw new ArgumentNullException(nameof(Tags));
+            if (TagId != Tag.TagId) throw new InvalidOperationException("Mauvais Tag");
+            Tag = Tags;
         }
 
     }

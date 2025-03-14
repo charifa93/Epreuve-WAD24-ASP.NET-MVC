@@ -20,7 +20,7 @@ namespace DAL.Services
             throw new NotImplementedException();
         }
 
-        public void CloturerEmprunt(int empruntId)
+        public void CloturerEmprunt(Guid empruntId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

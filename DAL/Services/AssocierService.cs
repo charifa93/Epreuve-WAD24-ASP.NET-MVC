@@ -12,11 +12,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace DAL.Services
 {
-   public  class AssocierService : BaseService , IAssocierRepository<DAL.Entities.Associer>
+    public class AssocierService : BaseService, IAssocierRepository<DAL.Entities.Associer>
     {
         public AssocierService(IConfiguration config) : base(config, "Main-DB") { }
 
-        public IEnumerable<Associer> GetTagsByJeu(Guid JeuId)
+        public IEnumerable<Associer> Get()
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -36,4 +36,4 @@ namespace DAL.Services
             }
         }
     }
-}
+    }

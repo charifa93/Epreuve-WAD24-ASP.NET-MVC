@@ -18,5 +18,7 @@ namespace BLL.Entities
             NomTag = nomTag;
         }
 
+
+
     }
 }

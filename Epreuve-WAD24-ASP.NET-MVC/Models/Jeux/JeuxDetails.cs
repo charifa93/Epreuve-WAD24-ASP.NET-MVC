@@ -50,7 +50,7 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Models.Jeux
         
         public DateOnly DateCreation{ get; set; }
 
-        //[DisplayName("Commentaires : ")]
-        //public IEnumerable<CommentListItem> Comments { get; set; }
+        //[DisplayName("Jeux : ")]
+        //public IEnumerable<JeuxListItems> Jeux { get; set; }
     }
 }

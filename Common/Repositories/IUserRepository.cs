@@ -10,7 +10,8 @@ namespace Common.Repositories
                                                      IGetRepository<TUtilisateur, Guid> , 
                                                     IDeleteRepository<TUtilisateur, Guid>,
                                                     IUpdateRepository<TUtilisateur, Guid>
-    { 
-     
+    {
+        Guid CheckPassword(string email, string password);
+
     }
 }

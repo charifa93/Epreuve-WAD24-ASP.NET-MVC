@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Epreuve_WAD24_ASP.NET_MVC.Models.Emprunt.EmpruntListItem10>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PreteurId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmprunteurId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JeuId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEmprunt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRetour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EvaluationPreteur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EvaluationEmpruteur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreteurId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmprunteurId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JeuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEmprunt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRetour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvaluationPreteur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvaluationEmpruteur)
+            </td>
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) | *@
+                @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) | *@
+                @* @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

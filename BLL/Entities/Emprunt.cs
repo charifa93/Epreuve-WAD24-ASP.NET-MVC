@@ -57,6 +57,26 @@ namespace BLL.Entities
         public Emprunt(DateTime dateEmprunt, DateTime? dateRetour, int? evaluationPreteur, int? evaluationEmprunteur, Guid? preteurId, Guid emprunteurId, Guid jeuId) : this (Guid.NewGuid(), dateEmprunt, dateRetour, evaluationPreteur, evaluationEmprunteur, preteurId,emprunteurId,jeuId)
         { }
 
+        public void SetJeux(Jeux jeu)
+        {
+            if (jeu is null) throw new ArgumentNullException(nameof(jeu));
+            if (JeuId is null) throw new InvalidOperationException("Pas de jeu à enregitrer.");
+            Jeux = jeu;
+        }
+
+        public void SetEmprunteur(Utilisateur emprunteur)
+        {
+            if (emprunteur is null) throw new ArgumentNullException(nameof(emprunteur));
+            if (EmprenteurId is null) throw new InvalidOperationException("Pas de Emprunteur à enregitrer.");
+            Emprunteur = emprunteur;
+        }
+
+        public void SetPreteur(Utilisateur preteur)
+        {
+            if (preteur is null) throw new ArgumentNullException(nameof(preteur));
+            if (PreteurId is null) throw new InvalidOperationException("Pas de Preteur à enregitrer.");
+            Preteur = preteur;
+        }
 
 
 

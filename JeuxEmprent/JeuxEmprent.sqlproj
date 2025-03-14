@@ -91,11 +91,13 @@
     <Build Include="dbo\Stored Procedures\Etat_GetByJeuxId.sql" />
     <Build Include="dbo\Stored Procedures\Tag_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Associer_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\User_CheckPassword.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JeuxEmprent.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Script.PostDeployment1.sql" />
+    <None Include="Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>

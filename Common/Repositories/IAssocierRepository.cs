@@ -8,6 +8,6 @@ namespace Common.Repositories
 {
     public interface IAssocierRepository <TAssocier> : IGetALLRepository<TAssocier,Guid>
     {
-        IEnumerable<TAssocier> GetTagsByJeu(Guid JeuId);
+        //IEnumerable<TAssocier> GetTagsByJeu(Guid JeuId);
     }
 }

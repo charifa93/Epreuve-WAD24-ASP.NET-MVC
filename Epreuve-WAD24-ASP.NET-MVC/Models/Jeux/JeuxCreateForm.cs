@@ -10,7 +10,7 @@ namespace Epreuve_WAD24_ASP.NET_MVC.Models.Jeux
         [Required(ErrorMessage = "Le champ 'Nom du Jeu' est obligatoire.")]
         [MinLength(2, ErrorMessage = "Le champ 'Nom du cocktail' doit contenir au minimum 2 caractères.")]
         [MaxLength(64, ErrorMessage = "Le champ 'Nom du cocktail' doit contenir au maximum 64 caractères.")]
-        public string Name { get; set; }
+        public string Nom { get; set; }
 
 
         [DisplayName("Description : ")]

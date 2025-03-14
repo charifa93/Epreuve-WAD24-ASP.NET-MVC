@@ -142,7 +142,7 @@ namespace BLL.Mappers
             };
         }
 
-        public static B.Associer ToBLL (this D.Associer associer)
+        public static B.Associer ToBLL(this D.Associer associer)
         {
             if(associer is null) throw new ArgumentNullException(nameof(associer));
             return new B.Associer

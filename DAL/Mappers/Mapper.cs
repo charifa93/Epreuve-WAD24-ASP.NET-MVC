@@ -60,7 +60,7 @@ namespace DAL.Mappers
             if (record is null) throw new ArgumentNullException(nameof(record));
             return new Tag()
             { 
-                TagId = (Guid)record[nameof(Associer.TagId)],
+                TagId = (Guid)record[nameof(Tag.TagId)],
                 NomTag = (string)record[nameof(Tag.NomTag)]
             };
         }
